@@ -70,7 +70,7 @@ BrowserWindow::BrowserWindow(const QString & config_path, QWidget * parent, Qt::
 {
 	setWindowTitle("SMTube");
 	setWindowIcon(QPixmap(":/icons/smtube.png"));
-	home_page = "http://www.tonvid.com/";
+	home_page = "https://www.youtube.com/?gl=RU&tab=r11";
 
 	settings = new QSettings(config_path + "/smtube2.ini", QSettings::IniFormat, this);
 
@@ -442,7 +442,7 @@ void BrowserWindow::openYTUrl(QString title, QString extension, const QString & 
 	if (current_player == WebBrowser) {
 		QString u = url;
 		#if 1
-		u = "http://www.tonvid.com/video.php?u=" + url.toUtf8().toBase64().toPercentEncoding() +
+		u = "https://www.youtube.com/watch?v=" + url.toUtf8().toBase64().toPercentEncoding() +
             "&t=" + title.toUtf8().toBase64().toPercentEncoding();
 		#endif
 		QDesktopServices::openUrl(u);
